@@ -24,9 +24,11 @@ let pokemon = [
 	types: ["water"]
 }
 ];
-for (let i = 0; i < pokemon.length; i++);
+pokemon.forEach (function(pokemon) { 
+console.log(pokemon.name + ' is ' + pokemon.height + ' meter height.' )
+});
 
-	if (pokemon[i].height > 1) {
+	// if (pokemon[i].height > 1) {
 
 		document.write("<p> " +pokemon[i].name +" "+ pokemon[i].height, " Wow! that is big! </p> <br/>");
 
@@ -37,4 +39,4 @@ for (let i = 0; i < pokemon.length; i++);
 	} else { 
 
 		document.write("<p> "+pokemon[i].name +" "+ pokemon[i].height," Small Pokemon! </p> <br/>")
-	}
+	} //
