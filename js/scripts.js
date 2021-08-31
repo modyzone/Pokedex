@@ -84,7 +84,7 @@ function add(pokemon) {
      titleElement.innerText = pokemon.name;
 
      let image = document.createElement('img');
-     img.src = pokemon.imageUrl;
+     image.src = pokemon.imageUrl;
 
      let contentElement = document.createElement('p');
      contentElement.innerText = "Height: " + pokemon.height;
@@ -93,7 +93,7 @@ function add(pokemon) {
      modalContent.appendChild(titleElement);
      modalContent.appendChild(image);
      modalContent.appendChild(contentElement);
-     modalContent.appendChild(modalContent);
+     modalContainer.appendChild(modalContent);
 
      modalContainer.addEventListener('click', (e) => {
      	let target = e.target;
@@ -112,17 +112,11 @@ function add(pokemon) {
     	}
     });
 
-    modalContainer.addEventListener('click', (e) => {
-    	let target = e.target;
-    	if (target === modalContainer) {
-    		hideModal();
-    	}
-    });
-
+  
     function showDetails(item) {
     	loadDetails(item).then(function ()
     	{
-    		console.log(item);
+    		showModal(item);
     	});
     }
 	return {
