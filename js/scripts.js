@@ -1,7 +1,8 @@
 
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
+
 
 function add(pokemon) {
   if (
@@ -15,6 +16,7 @@ function add(pokemon) {
   console.log("pokemon is not correct");
  }
 }
+ 
   function getAll() {
     return pokemonList;
   }
@@ -91,10 +93,10 @@ function add(pokemon) {
       modalBody.empty();
 
       let nameElement = $("<h1>"  + item.name + "</h1>");
-      let imageElementFront = $('<img class="modal-img"style=width:50%">');
-      imageElementFront.attr("src", item.imageUrlFront);
-      let imageElementBack = $('<img class="modal-img"style=width:50%>');
-      imageElementBack.attr("src", item.imageUrlBack);
+      let imageElementFront = $('<img class="modal-img" style="width:50%">');
+      imageElementFront.attr('src', item.imageUrlFront);
+      let imageElementBack = $('<img class="modal-img" style="width:50%>"');
+      imageElementBack.attr('src', item.imageUrlBack);
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
       let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
       let typesElement = $("<p>" + "types : " + item.types + "</p>");
