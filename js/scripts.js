@@ -93,9 +93,9 @@ function add(pokemon) {
       modalBody.empty();
 
       let nameElement = $("<h1>"  + item.name + "</h1>");
-      let imageElementFront = $('<img class="modal-img" style="width:100%">');
+      let imageElementFront = $('<img class="modal-img" style="width:50%>"');
       imageElementFront.attr('src', item.imageUrlFront);
-      let imageElementBack = $('<img class="modal-img" style="width:50%>"');
+      let imageElementBack = $('<img class="modal-img" style="width:20%>"');
       imageElementBack.attr('src', item.imageUrlBack);
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
       let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
