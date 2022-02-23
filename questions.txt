@@ -1,0 +1,14 @@
+<div class="modal" tabindex="-1" role="dialog">
+<div class="row">
+  </div>
+<div class="container">
+      <!-- The Modal -->
+      <div id="modal-container" class= "modal"></div>
+      <ul class="pokemon-list list-group mt-5"></ul>
+    </div>
+    <h1>pokedex</h1>
+    <p>List of some Pokemons stats</p>
+    <ul class="pokemon-list"></ul>
+   <strong>
+
+script 65---> 105
