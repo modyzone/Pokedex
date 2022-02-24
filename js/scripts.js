@@ -39,42 +39,42 @@ function add(pokemon) {
 
    }
      
-     function loadList() {
-      return fetch(apiUrl).then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        json.results.forEach(function (item) {
-          let pokemon = {
-            name: item.name,
-            detailsUrl: item.url
-          };
-          add(pokemon);
-             });
-     }).catch(function (e) {
-  console.error(e);
- })
+     async function loadList() {
+      try {
+         const response = await fetch(apiUrl);
+         const json = await response.json();
+         json.results.forEach(function (item) {
+           let pokemon = {
+             name: item.name,
+             detailsUrl: item.url
+           };
+           add(pokemon);
+         });
+       } catch (e) {
+         console.error(e);
+       }
 }
 
- function loadDetails(item) {
+ async function loadDetails(item) {
       let url = item.detailsUrl;
-      return fetch(url).then(function (response) {
-        return response.json();
-    }).then(function (details) {
-      item.imageUrlFront = details.sprites.front_default;
-      item.imageUrlBack = details.sprites.back_default;
-      item.height = details.height;
-      item.weight =details.weight;
-      item.types = [];
-      for (let i = 0; i < details.types.length; i++) {
-        item.types.push(details.types[i].type.name);
-      }
-      item.abilities = [];
-      for (let i = 0; i < details.abilities.length; i++) {
-        item.abilities.push(details.abilities[i].ability.name);
-      }
-    }).catch(function (e) {
-      console.error(e);
-     });
+      try {
+     const response = await fetch(url);
+     const details = await response.json();
+     item.imageUrlFront = details.sprites.front_default;
+     item.imageUrlBack = details.sprites.back_default;
+     item.height = details.height;
+     item.weight = details.weight;
+     item.types = [];
+     for (let i = 0; i < details.types.length; i++) {
+       item.types.push(details.types[i].type.name);
+     }
+     item.abilities = [];
+     for (let i_1 = 0; i_1 < details.abilities.length; i_1++) {
+       item.abilities.push(details.abilities[i_1].ability.name);
+     }
+   } catch (e) {
+     console.error(e);
+   }
     };
 
   
@@ -91,6 +91,7 @@ function add(pokemon) {
       let modalHeader = $(".modal-header");
       modalTitle.empty();
       modalBody.empty();
+      modalHeader.empty();
 
       let nameElement = $("<h1>"  + item.name + "</h1>");
       let imageElementFront = $('<img class="modal-img" style="width:50%>"');
